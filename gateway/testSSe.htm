@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+            this.eventSource = new EventSource('http://localhost:3000/admin/orders');
+            this.eventSource.onmessage = (event) => {
+                console.log(event);
+            //   this.messages.push('New message: ' + event.data);
+            }
+            this.eventSource.onerror=(error)=>{
+                console.log("error",error.target);
+            }
+            console.log("status",this.eventSource.readyState)
+        </script>
+</body>
+</html>
